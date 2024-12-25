@@ -5,6 +5,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import com.nooro.weatherapp.R
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -288,9 +289,13 @@ private fun SearchResults(viewModel: WeatherViewModel) {
             uiState.weatherSummary?.let {
                 CurrentWeatherContent(weatherSummary = it)
             } ?: run {
-                uiState.weatherInfoPerCity?.bulk?.forEach { bulkInfo ->
-                    Spacer(modifier = Modifier.height(8.dp))
-                    SearchResultCard(bulkInfo.query, viewModel)
+                LazyColumn {
+                    uiState.weatherInfoPerCity?.bulk?.let {
+                        items(count = it.size) { index ->
+                            Spacer(modifier = Modifier.height(8.dp))
+                            SearchResultCard(it[index].query, viewModel)
+                        }
+                    }
                 }
             }
         }
