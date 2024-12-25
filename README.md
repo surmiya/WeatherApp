@@ -35,7 +35,7 @@ A weather app that demonstrates skills in **Kotlin**, **Jetpack Compose**, and *
 ### **Tech Stack**
 
 1. Uses **Kotlin** and **Jetpack Compose** exclusively.
-2. Follow **MVVM** along with **clean architecture** with modular, testable code.
-3. Use **dependency injection** (Hilt) and interface-based abstractions.
+2. Follows **MVVM** along with **clean architecture** with modular, testable code.
+3. Uses **dependency injection** (Hilt) and interface-based abstractions.
 
 ---
